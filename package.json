@@ -8,7 +8,7 @@
 		"build:e2e": "detox build --configuration $E2E_CONFIG",
 		"build:e2e:ios": "E2E_CONFIG=ios.sim.release yarn build:e2e",
 		"build:e2e:android": "E2E_CONFIG=android.emu.release yarn build:e2e",
-		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"start": "node node_modules/react-native/local-cli/cli.js start --transformer node_modules/react-native-typescript-transformer/index.js --sourceExts ts,tsx",
 		"test": "jest",
 		"test:e2e": "detox test --configuration $E2E_CONFIG",
 		"test:e2e:ios": "E2E_CONFIG=ios.sim.release yarn test:e2e",
@@ -27,6 +27,7 @@
 	],
 	"dependencies": {
 		"date-fns": "1.29.0",
+		"events": "2.0.0",
 		"lodash": "4.17.4",
 		"lodash-decorators": "4.5.0",
 		"mobx": "3.4.1",
@@ -34,15 +35,23 @@
 		"mobx-react": "4.3.5",
 		"prop-types": "15.6.0",
 		"react": "16.2.0",
+		"react-fiber-export": "1.3.6",
 		"react-native": "0.52.2",
 		"react-native-code-push": "5.2.1",
 		"react-native-config": "0.11.5",
 		"react-native-firebase": "3.2.2",
 		"react-native-navigation": "1.1.361",
 		"react-native-sentry": "0.33.0",
-		"react-native-ui-lib": "3.0.0"
+		"react-native-ui-lib": "3.0.0",
+		"react-native-webgl": "0.8.0",
+		"react-three-renderer": "3.2.3",
+		"react-three-renderer-fiber": "0.0.1-0",
+		"require-context": "1.0.4",
+		"three": "0.89.0"
 	},
 	"devDependencies": {
+		"@types/react": "^16.0.36",
+		"@types/react-native": "^0.52.8",
 		"babel-core": "6.26.0",
 		"babel-eslint": "8.2.1",
 		"babel-jest": "22.1.0",
@@ -67,7 +76,9 @@
 		"mocha": "5.0.0",
 		"react-dom": "16.2.0",
 		"react-native-rename": "2.2.2",
-		"react-test-renderer": "16.2.0"
+		"react-native-typescript-transformer": "^1.2.3",
+		"react-test-renderer": "16.2.0",
+		"typescript": "^2.7.1"
 	},
 	"jest": {
 		"preset": "react-native",
